@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, createContext, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LandingSearch from "./containers/LandingSearch";
+import Title from "./ui/Title";
+import styled from "styled-components";
+import Weather from "./containers/Weather";
+import SubHeading from "./ui/SubHeading";
+const AppContainer = styled.div`
+  width: 99%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 50px;
+`;
+const Header = styled.div`
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+`;
 
 function App() {
+  // const [state, setstate] = useState(initialState);
+  // const store = useContext(AppContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <Header>
+        <Title />
+        <SubHeading />
+      </Header>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={LandingSearch} />
+          <Route exact path="/jalandhar" component={Weather} />
+        </Switch>
+      </Router>
+    </AppContainer>
   );
 }
 
