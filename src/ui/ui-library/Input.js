@@ -8,6 +8,7 @@ const Input = styled.input`
   font-size: ${webSizes.input}px;
   outline: none;
   border: none;
+  text-transform: capitalize;
   border-bottom: 2px solid ${Colors.lightGreen};
 `;
 

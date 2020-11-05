@@ -1,23 +1,23 @@
 import styled from "styled-components";
 import ListItem from "./ListItem";
-import Colors from "../utility/Colors";
-const ListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+import FlexColumnContainer from "../ui/ui-library/FlexColumnContainer";
+const ListContainer = styled(FlexColumnContainer)`
   width: 70%;
-  align-items: center;
   justify-content: flex-start;
   padding: 20px;
-  overflow: scroll;
-  height: 500px;
+  height: 600px;
   margin-top: 20px;
+  overflow-y: scroll;
 `;
 
-const List = () => (
-  <ListContainer>
-    {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((item) => (
-      <ListItem />
-    ))}
-  </ListContainer>
-);
+const List = ({ cities, fetchData }) => {
+  return (
+    <ListContainer>
+      {cities !== null &&
+        cities !== undefined &&
+        Array.isArray(cities) &&
+        cities.map((city) => <ListItem city={city} fetchData={fetchData} />)}
+    </ListContainer>
+  );
+};
 export default List;

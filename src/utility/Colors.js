@@ -5,8 +5,10 @@ const Colors = {
   lightCyan: "#88ffff",
   darkGreen: "#519657",
   lightGreen: "#b2fab4",
-  lightTeal: "#439889",
+  lightTeal: "#b2fef7",
   darkTeal: "#003d33",
   gray: "#ccc",
+  error: "#ef5350",
+  white: "#fff",
 };
 export default Colors;

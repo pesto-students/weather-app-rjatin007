@@ -1,10 +1,9 @@
-import { useContext, createContext, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingSearch from "./containers/LandingSearch";
 import Title from "./ui/Title";
 import styled from "styled-components";
 import Weather from "./containers/Weather";
-import SubHeading from "./ui/SubHeading";
+import Colors from "./utility/Colors";
 const AppContainer = styled.div`
   width: 99%;
   height: 100vh;
@@ -22,22 +21,19 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0px;
+  background: ${Colors.lightTeal};
 `;
 
 function App() {
-  // const [state, setstate] = useState(initialState);
-  // const store = useContext(AppContext);
-
   return (
     <AppContainer>
       <Header>
         <Title />
-        <SubHeading />
       </Header>
       <Router>
         <Switch>
           <Route exact path="/" component={LandingSearch} />
-          <Route exact path="/jalandhar" component={Weather} />
+          <Route exact path="/:city" component={Weather} />
         </Switch>
       </Router>
     </AppContainer>

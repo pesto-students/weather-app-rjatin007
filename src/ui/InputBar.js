@@ -1,11 +1,14 @@
 import SearchBar from "./ui-library/SearchBar";
 import Input from "./ui-library/Input";
-import SearchIcon from "./ui-library/icons/SearchIcon";
-const InputBar = () => (
+
+const InputBar = ({ query, handleOnChange }) => (
   <>
     <SearchBar>
-      <SearchIcon />
-      <Input placeholder="Search by city name" />
+      <Input
+        placeholder="Tum mujhe Location do, mein tumhe Weather dunga!!!"
+        value={query}
+        onChange={handleOnChange}
+      />
     </SearchBar>
   </>
 );
