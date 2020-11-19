@@ -12,7 +12,7 @@ const ForcastOuterContainer = styled(FlexColumnContainer)`
   width: 90%;
   border-radius: 20px;
   margin: 50px auto;
-  box-shadow: 0px 0px 40px 5px ${({ color }) => color};
+  background-color: ${Colors.white};
 `;
 const ForcastContainer = styled(FlexRowContainer)`
   justify-content: flex-start;

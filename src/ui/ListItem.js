@@ -7,7 +7,7 @@ const ItemLabel = styled(Label)`
   color: ${Colors.darkCyan};
   cursor: pointer;
   &:hover {
-    color: ${Colors.darkTeal};
+    color: ${Colors.lightGreen};
     text-decoration: underline;
   }
 `;
@@ -20,7 +20,7 @@ const InfoContainer = styled(Paper)`
 const ListItem = ({ city, fetchData }) => (
   <InfoContainer>
     <Link to={`/${city.display_place}`}>
-      <ItemLabel onClick={fetchData(city.lon, city.lat, city.display_place)}>
+      <ItemLabel onClick={fetchData(city.lon, city.lat, city.display_name)}>
         {city.display_name}
       </ItemLabel>
     </Link>

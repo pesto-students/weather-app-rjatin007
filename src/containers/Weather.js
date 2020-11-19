@@ -29,7 +29,7 @@ const HeroIcon = styled.img`
 const WeatherLabel = styled(Label)`
   text-transform: capitalize;
   font-weight: light;
-  color: ${Colors.darkCyan};
+  color: ${Colors.lightGreen};
   font-size: ${webSizes.subheading}px;
   padding: 20px;
 `;
@@ -40,7 +40,7 @@ const InfoContainer = styled(FlexRowContainer)`
   margin-right: 50px;
   justify-content: space-around;
   border-radius: 20px;
-  box-shadow: 0px 0px 40px 5px ${Colors.lightGreen};
+  background-color: ${Colors.white};
 `;
 
 const InfoLabels = styled(Label)`

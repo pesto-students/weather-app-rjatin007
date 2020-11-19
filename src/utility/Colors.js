@@ -10,5 +10,6 @@ const Colors = {
   gray: "#ccc",
   error: "#ef5350",
   white: "#fff",
+  black: `rgba(0, 0, 0, 0.9)`,
 };
 export default Colors;
