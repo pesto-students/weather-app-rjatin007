@@ -10,6 +10,8 @@ const Input = styled.input`
   border: none;
   text-transform: capitalize;
   border-bottom: 2px solid ${Colors.lightGreen};
+  background-color: ${Colors.black};
+  color: ${Colors.lightCyan};
 `;
 
 export default Input;

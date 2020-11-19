@@ -7,7 +7,7 @@ const ItemLabel = styled(Label)`
   color: ${Colors.darkCyan};
   cursor: pointer;
   &:hover {
-    color: ${Colors.darkTeal};
+    color: ${Colors.lightGreen};
     text-decoration: underline;
   }
 `;

@@ -2,7 +2,7 @@ import H1 from "./ui-library/H1";
 import { webSizes } from "../utility/Fonts";
 import Colors from "../utility/Colors";
 const Title = () => (
-  <H1 size={webSizes.title} color={Colors.darkTeal}>
+  <H1 size={webSizes.title} color={Colors.lightGreen}>
     Tornado
   </H1>
 );

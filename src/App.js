@@ -5,13 +5,14 @@ import styled from "styled-components";
 import Weather from "./containers/Weather";
 import Colors from "./utility/Colors";
 const AppContainer = styled.div`
-  width: 99%;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   margin-right: 50px;
+  background-color: ${Colors.black};
 `;
 const Header = styled.div`
   width: 100%;
@@ -21,7 +22,6 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0px;
-  background: ${Colors.lightTeal};
 `;
 
 function App() {

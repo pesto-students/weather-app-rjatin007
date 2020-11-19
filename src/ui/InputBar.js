@@ -5,7 +5,7 @@ const InputBar = ({ query, handleOnChange }) => (
   <>
     <SearchBar>
       <Input
-        placeholder="Tum mujhe Location do, mein tumhe Weather dunga!!!"
+        placeholder="Search Weather..."
         value={query}
         onChange={handleOnChange}
       />
