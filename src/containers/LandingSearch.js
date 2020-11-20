@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import InputBar from "../ui/InputBar";
 import List from "../ui/List";
@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import debounce from "lodash/debounce";
 import FlexColumnContainer from "../ui/ui-library/FlexColumnContainer";
 import ErrorLabel from "../ui/ui-library/ErrorLabel";
-
+import { isValidQuery } from "../utility/helpers";
 const Layout = styled(FlexColumnContainer)`
   margin-top: 50px;
   justify-content: flex-start;
@@ -17,25 +17,19 @@ const Layout = styled(FlexColumnContainer)`
 
 function LandingSearch({ fetchData, fetchCityLocation, citiesList }) {
   const [query, setQuery] = useState("");
-  const [showError, setShowError] = useState(null);
+  const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const handleOnChange = ({ target: { value } }) => {
     if (value.length > 0 && !isValidQuery(value)) {
       setShowError(true);
       setErrorMessage("Only alphabets please...!!!");
+    } else {
+      const debouncedFn = debounce(fetchCityLocation, 500);
+      debouncedFn(query);
+      setQuery(value);
     }
-
-    setQuery(value);
   };
-  useEffect(() => {
-    const debouncedFn = debounce(fetchCityLocation, 500);
-    debouncedFn(query);
-  }, [query, fetchCityLocation]);
 
-  const isValidQuery = (query) => {
-    const pattern = /^([a-zA-Z0-9\u0600-\u06FF\u0660-\u0669\u06F0-\u06F9 _.-]+)$/;
-    return pattern.test(query);
-  };
   return (
     <Layout>
       <InputBar query={query} handleOnChange={handleOnChange} />
