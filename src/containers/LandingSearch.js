@@ -8,6 +8,7 @@ import debounce from "lodash/debounce";
 import FlexColumnContainer from "../ui/ui-library/FlexColumnContainer";
 import ErrorLabel from "../ui/ui-library/ErrorLabel";
 import { isValidQuery } from "../utility/helpers";
+import Loader from "../ui/ui-library/Loader";
 const Layout = styled(FlexColumnContainer)`
   margin-top: 50px;
   justify-content: flex-start;
@@ -15,7 +16,12 @@ const Layout = styled(FlexColumnContainer)`
   overflow-y: hidden;
 `;
 
-function LandingSearch({ fetchData, fetchCityLocation, citiesList }) {
+function LandingSearch({
+  fetchData,
+  fetchCityLocation,
+  citiesList,
+  isLoading,
+}) {
   const [query, setQuery] = useState("");
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -32,6 +38,7 @@ function LandingSearch({ fetchData, fetchCityLocation, citiesList }) {
 
   return (
     <Layout>
+      {isLoading && <Loader />}
       <InputBar query={query} handleOnChange={handleOnChange} />
       {showError && <ErrorLabel>{errorMessage}</ErrorLabel>}
       <List cities={citiesList} fetchData={fetchData} />
@@ -40,6 +47,7 @@ function LandingSearch({ fetchData, fetchCityLocation, citiesList }) {
 }
 const mapStateToProps = (state) => ({
   citiesList: state.locationData,
+  isLoading: state.isLoading,
 });
 const mapDispatchToProps = (dispatch) => ({
   fetchData: (long, lat, city) =>

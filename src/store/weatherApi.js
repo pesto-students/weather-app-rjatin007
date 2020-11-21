@@ -9,7 +9,7 @@ const headers = {
 };
 export const fetchDataByCityCoordinates = (long, lat) => {
   // console.log("city", cityName);
-  return fetch(`${rootUrl}&lon=${long}&lat=${lat}`, headers)
-    .then((res) => res.json())
-    .then((res) => res);
+  return fetch(`${rootUrl}&lon=${long}&lat=${lat}`, headers).then((res) =>
+    res.json()
+  );
 };

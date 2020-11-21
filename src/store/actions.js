@@ -7,6 +7,7 @@ export const fetchDataByCityLocation = (long, lat, city) => {
       type: actionTypes.ASYNC_FETCH_WEATHER_DATA,
     });
     fetchDataByCityCoordinates(long, lat, city).then((res) => {
+      console.log("RES", res);
       dispatch({
         type: actionTypes.ASYNC_FETCH_WEATHER_DATA_SUCCESS,
         payload: res,
