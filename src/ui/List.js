@@ -7,15 +7,16 @@ const ListContainer = styled(FlexColumnContainer)`
   padding: 20px;
   height: 600px;
   margin-top: 20px;
-  overflow-y: scroll;
+  overflow-y: ${({ isCitiesAvailable }) =>
+    isCitiesAvailable ? "scroll" : "hidden"};
 `;
 
 const List = ({ cities, fetchData }) => {
+  let isCitiesAvailable =
+    cities !== null && cities !== undefined && Array.isArray(cities);
   return (
-    <ListContainer>
-      {cities !== null &&
-        cities !== undefined &&
-        Array.isArray(cities) &&
+    <ListContainer isCitiesAvailable={isCitiesAvailable}>
+      {isCitiesAvailable &&
         cities.map((city) => <ListItem city={city} fetchData={fetchData} />)}
     </ListContainer>
   );
